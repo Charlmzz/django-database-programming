@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Sql display{% endblock %}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <main>
+    {% block content %}
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Welcome</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'display' %}">Queries<span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+  </div>
+</nav>
+<hr>
+
+    <br>
+
+  <div class="container">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>PLAYER_ID</th>
+            <th>TEAM_ID</th>
+            <th>UNIFORM_NUM</th>
+            <th>FIRST_NAME</th>
+            <th>LAST_NAME</th>
+            <th>MPG</th>
+            <th>PPG</th>
+            <th>RPG</th>
+            <th>APG</th>
+            <th>SPG</th>
+            <th>BPG</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for  ans in ans1%}
+          <tr>
+            <td>{{ ans.player_id}}</td>
+            <td>{{ans.team_id.team_id}}</td>
+            <td>{{ans.uniform_num}}</td>
+            <td>{{ans.first_name}}</td>
+            <td>{{ans.last_name}}</td>
+            <td>{{ans.mpg}}</td>
+            <td>{{ans.ppg}}</td>
+            <td>{{ans.rpg}}</td>
+            <td>{{ans.apg}}</td>
+            <td>{{ans.spg}}</td>
+            <td>{{ans.bpg}}</td>
+            {% endfor %}
+        </tbody>
+      </table>
+</div>
+<br>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for  ans in ans2%}
+      <tr>
+        <td>{{ ans.name}}</td>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>FIRST_NAME</th>
+        <th>LAST_NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for  ans in ans3%}
+      <tr>
+        <td>{{ ans.first_name}}</td>
+        <td>{{ans.last_name}}</td>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>UNIFORM_NUM</th>
+        <th>FIRST_NAME</th>
+        <th>LAST_NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for  ans in ans4%}
+      <tr>
+        <td>{{ ans.uniform_num}}</td>
+        <td>{{ ans.first_name}}</td>
+        <td>{{ans.last_name}}</td>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>FIRST_NAME</th>
+        <th>LAST_NAME</th>
+        <th>NAME</th>
+        <th>WINS</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for  ans in ans5%}
+      <tr>
+        <td>{{ ans.first_name}}</td>
+        <td>{{ans.last_name}}</td>
+        <td>{{ ans.team_id.name}}</td>
+        <td>{{ ans.team_id.wins}}</td>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+    {% endblock %}
+  </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
